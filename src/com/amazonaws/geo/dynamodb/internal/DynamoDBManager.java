@@ -89,7 +89,7 @@ public class DynamoDBManager {
 			keyConditions.put(config.getGeohashAttributeName(), geohashCondition);
 
 			queryRequest.withTableName(config.getTableName()).withKeyConditions(keyConditions)
-					.withIndexName(config.getGeohashIndexName()).withConsistentRead(true)
+					.withIndexName(config.getGeohashIndexName())
 					.withReturnConsumedCapacity(ReturnConsumedCapacity.TOTAL).withExclusiveStartKey(lastEvaluatedKey);
 
 			QueryResult queryResult = config.getDynamoDBClient().query(queryRequest);
